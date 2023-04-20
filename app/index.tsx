@@ -9,7 +9,7 @@ export default function Login() {
   const [password, setPassword] = useState("");
 
   const handleLogin = () => {
-    router.push("/home");
+    router.push("home");
   };
 
   return (
