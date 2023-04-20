@@ -48,6 +48,15 @@ export default function Login() {
         >
           <Text style={{ color: "#fff", fontWeight: "bold" }}>Login</Text>
         </Pressable>
+
+        <Pressable>
+          <Text className="text-white text-center mt-4">
+            Don't have an account?{" "}
+            <Link href="register" className="text-blue-500">
+              Register
+            </Link>
+          </Text>
+        </Pressable>
       </View>
     </View>
   );
