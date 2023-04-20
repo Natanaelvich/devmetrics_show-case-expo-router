@@ -1,6 +1,6 @@
 import { Link } from "expo-router";
 import { StatusBar } from "expo-status-bar";
-import { Image, Text, View } from "react-native";
+import { Image, Pressable, Text, View } from "react-native";
 
 export default function Home() {
   return (
@@ -18,6 +18,15 @@ export default function Home() {
         sua vida de uma forma mais eficiente. Com Meu App, você pode facilmente
         organizar suas tarefas, criar listas de compras e muito mais!
       </Text>
+
+      <Pressable>
+        <Text className="text-white text-center mt-4">
+          Go to{" "}
+          <Link href="dashboard" className="text-blue-500">
+            Dashboard
+          </Link>
+        </Text>
+      </Pressable>
     </View>
   );
 }
