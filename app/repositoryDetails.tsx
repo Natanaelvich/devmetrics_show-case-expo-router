@@ -3,7 +3,7 @@ import { StatusBar } from "expo-status-bar";
 import { useEffect, useState } from "react";
 import { Image, Text, View } from "react-native";
 
-type Repository = {
+export type Repository = {
   id: number;
   name: string;
   full_name: string;
