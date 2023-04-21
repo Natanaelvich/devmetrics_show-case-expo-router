@@ -6,7 +6,7 @@ import { useRouter } from "expo-router";
 import Feather from "@expo/vector-icons/Feather";
 
 export default function Home() {
-  const { username } = useGithubStore();
+  const { username, setUsername } = useGithubStore();
   const router = useRouter();
 
   const [userData, setUserData] = useState(null);
@@ -24,6 +24,14 @@ export default function Home() {
     router.push("metrics");
   };
 
+  const handleLogout = () => {
+    // Clear the username from the store
+    setUsername(null);
+
+    // Navigate to the login screen
+    router.push("login");
+  };
+
   useEffect(() => {
     if (username) {
       fetch(`https://api.github.com/users/${username}`)
@@ -37,10 +45,18 @@ export default function Home() {
   }, [username]);
 
   return (
-    <View className="flex-1 items-center justify-center bg-gray-900">
+    <View className="flex-1 items-center bg-gray-900">
       <StatusBar style="light" />
+
+      <View className="flex-row justify-between items-center px-6 py-10 w-full">
+        <Text className="text-white text-xl font-bold">DevMetrics</Text>
+        <Pressable onPress={handleLogout}>
+          <Feather name="log-out" size={24} color="#fff" />
+        </Pressable>
+      </View>
+
       <Text className="text-white text-3xl font-bold mb-8">
-        Bem-vindo ao Meu App!
+        Wellcome {username}
       </Text>
 
       {isLoading && <ActivityIndicator size="large" color="#fff" />}

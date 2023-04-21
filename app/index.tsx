@@ -22,7 +22,7 @@ export default function Login() {
     <View className="flex-1 justify-center items-center bg-gray-900">
       <View className="w-3/4">
         <Text className="text-white text-3xl font-bold mb-8 text-center">
-          Expo router example
+          DevMetrics
         </Text>
 
         <TextInput
