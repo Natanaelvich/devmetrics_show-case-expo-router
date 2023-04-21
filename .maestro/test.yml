@@ -1,0 +1,66 @@
+appId: com.devmetrics.app
+---
+- openLink: exp://192.168.15.7:19000
+- assertVisible: "DevMetrics"
+- tapOn:
+    id: "github-username-input"
+- eraseText
+- inputText: "natanaelvich"
+- tapOn: "Search"
+- assertVisible: "Wellcome natanaelvich"
+- assertVisible: "Natanael"
+- assertVisible: "Passionate about technology and lover of challenges"
+- tapOn: "Account Details"
+- assertVisible: "natanaelvich"
+- assertVisible: "Natanael"
+- assertVisible: "Bio"
+- assertVisible: "Passionate about technology and lover of challenges"
+- assertVisible: "Blog"
+- assertVisible: "https://www.linkedin.com/in/natanaelvich/"
+- assertVisible: "https://www.linkedin.com/in/natanaelvich/"
+- assertVisible: "Company"
+- assertVisible: "COAMO AGROINDUSTRIAL COOPERATIVA"
+- assertVisible: "URL"
+- assertVisible: "https://github.com/Natanaelvich"
+- scrollUntilVisible:
+    element: "Location"
+    direction: DOWN
+- scrollUntilVisible:
+    element: "Timbiras,MA,Brazil"
+    direction: DOWN
+- tapOn: "Navigate up"
+- tapOn:
+    text: "Repositories"
+    index: 0
+- assertVisible: "Search repository..."
+- tapOn: "devmetrics_show-case-expo-router"
+- assertVisible: "Repository details"
+- assertVisible: "devmetrics_show-case-expo-router"
+- assertVisible: "DevMetrics is a mobile app built with React Native and Expo, created\
+    \ to apply the concepts of navigation using Expo Router and fetching data from\
+    \ the GitHub API to display repositories, user details, and metrics."
+- tapOn: "Navigate up"
+- tapOn:
+    text: "home"
+    index: 0
+- assertVisible:
+    id: "home-container"
+- tapOn:
+    text: "repositories"
+    index: 1
+- assertVisible:
+    id: "repo-container"
+- tapOn:
+    id: "search-input"
+- eraseText
+- inputText: "devmetrics_show-case-expo-router"
+- assertVisible: "devmetrics_show-case-expo-router"
+- hideKeyboard
+- tapOn:
+    text: "home"
+    index: 0
+- tapOn: "Metrics"
+- assertVisible: "Metrics for natanaelvich"
+- assertVisible: "Number of Repositories"
+- assertVisible: "Number of Stars"
+- assertVisible: "Number of Forks"
