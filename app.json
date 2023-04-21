@@ -4,7 +4,7 @@
     "web": {
       "bundler": "metro"
     },
-    "name": "show-case-expo-router",
-    "slug": "show-case-expo-router"
+    "name": "DevMetrics",
+    "slug": "DevMetrics"
   }
 }
