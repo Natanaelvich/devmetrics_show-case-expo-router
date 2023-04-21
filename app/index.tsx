@@ -1,9 +1,11 @@
-import { Link, useNavigation, useRouter, useSegments } from "expo-router";
+import { Link, useRouter } from "expo-router";
 import { useState } from "react";
-import { Alert, Button, Pressable, Text, TextInput, View } from "react-native";
+import { Alert, Pressable, Text, TextInput, View } from "react-native";
+import { useGithubStore } from "../store/github-store";
 
 export default function Login() {
   const router = useRouter();
+  const { setUsername } = useGithubStore();
 
   const [githubUsername, setGithubUsername] = useState("");
 
@@ -11,7 +13,8 @@ export default function Login() {
     if (githubUsername === "") {
       Alert.alert("Please enter your GitHub username.");
     } else {
-      router.push(`home?githubUsername=${githubUsername}`);
+      setUsername(githubUsername);
+      router.push("home");
     }
   };
 
