@@ -5,11 +5,14 @@ import { Alert, Button, Pressable, Text, TextInput, View } from "react-native";
 export default function Login() {
   const router = useRouter();
 
-  const [username, setUsername] = useState("");
-  const [password, setPassword] = useState("");
+  const [githubUsername, setGithubUsername] = useState("");
 
   const handleLogin = () => {
-    router.push("home");
+    if (githubUsername === "") {
+      Alert.alert("Please enter your GitHub username.");
+    } else {
+      router.push(`home?githubUsername=${githubUsername}`);
+    }
   };
 
   return (
@@ -21,18 +24,10 @@ export default function Login() {
 
         <TextInput
           className="border border-gray-400 p-2 mb-4 rounded bg-gray-800 text-white placeholder-gray-500 focus:border-blue-500 focus:outline-none"
-          placeholder="Username"
+          placeholder="GitHub username"
           placeholderTextColor="#718096"
-          value={username}
-          onChangeText={setUsername}
-        />
-        <TextInput
-          className="border border-gray-400 p-2 mb-4 rounded bg-gray-800 text-white placeholder-gray-500 focus:border-blue-500 focus:outline-none"
-          placeholder="Password"
-          placeholderTextColor="#718096"
-          secureTextEntry
-          value={password}
-          onChangeText={setPassword}
+          value={githubUsername}
+          onChangeText={setGithubUsername}
         />
         <Pressable
           style={({ pressed }) => [
