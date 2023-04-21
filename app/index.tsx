@@ -1,4 +1,4 @@
-import { Link, useRouter } from "expo-router";
+import { useRouter } from "expo-router";
 import { useState } from "react";
 import { Alert, Pressable, Text, TextInput, View } from "react-native";
 import { useGithubStore } from "../store/github-store";
@@ -44,16 +44,7 @@ export default function Login() {
           ]}
           onPress={handleLogin}
         >
-          <Text style={{ color: "#fff", fontWeight: "bold" }}>Login</Text>
-        </Pressable>
-
-        <Pressable>
-          <Text className="text-white text-center mt-4">
-            Don't have an account?{" "}
-            <Link href="register" className="text-blue-500">
-              Register
-            </Link>
-          </Text>
+          <Text style={{ color: "#fff", fontWeight: "bold" }}>Search</Text>
         </Pressable>
       </View>
     </View>
