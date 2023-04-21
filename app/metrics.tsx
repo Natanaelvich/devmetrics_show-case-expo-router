@@ -43,7 +43,7 @@ export default function Metrics() {
     <View className="flex-1 bg-gray-900 px-4 py-8">
       <Stack.Screen
         options={{
-          title: `Metrics for ${username}`,
+          title: "Metrics",
         }}
       />
 
