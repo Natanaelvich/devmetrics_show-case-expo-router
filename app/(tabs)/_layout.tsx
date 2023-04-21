@@ -1,10 +1,37 @@
 import { Tabs } from "expo-router";
+import Feather from "@expo/vector-icons/Feather";
 
 const TabsLayout = () => {
   return (
-    <Tabs>
-      <Tabs.Screen name="home" options={{ tabBarLabel: "Home" }} />
-      <Tabs.Screen name="profile" options={{ tabBarLabel: "Profile" }} />
+    <Tabs
+      screenOptions={{
+        tabBarActiveTintColor: "#90CDF4",
+        tabBarInactiveTintColor: "#CBD5E0",
+        tabBarStyle: {
+          backgroundColor: "#2D3748",
+          borderTopColor: "#4A5568",
+          borderTopWidth: 1,
+        },
+      }}
+    >
+      <Tabs.Screen
+        name="home"
+        options={{
+          headerShown: false,
+          tabBarIcon: ({ color }) => (
+            <Feather name="home" size={24} color={color} />
+          ),
+        }}
+      />
+      <Tabs.Screen
+        name="repositories"
+        options={{
+          headerShown: false,
+          tabBarIcon: ({ color }) => (
+            <Feather name="github" size={24} color={color} />
+          ),
+        }}
+      />
     </Tabs>
   );
 };
