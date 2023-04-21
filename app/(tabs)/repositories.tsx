@@ -1,4 +1,4 @@
-import { Link, useRouter, useSearchParams } from "expo-router";
+import { useRouter } from "expo-router";
 import { StatusBar } from "expo-status-bar";
 import { useState, useEffect } from "react";
 import {
@@ -8,17 +8,18 @@ import {
   Text,
   View,
 } from "react-native";
+import { useGithubStore } from "../../store/github-store";
 
 export default function Repositories() {
   const router = useRouter();
-  const { githubUsername } = useSearchParams();
+  const { username } = useGithubStore();
 
   const [repositories, setRepositories] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-    if (githubUsername) {
-      fetch(`https://api.github.com/users/${githubUsername}/repos?per_page=20`)
+    if (username) {
+      fetch(`https://api.github.com/users/${username}/repos?per_page=20`)
         .then((response) => response.json())
         .then((data) => {
           setRepositories(data);
@@ -26,7 +27,7 @@ export default function Repositories() {
         })
         .catch((error) => console.error(error));
     }
-  }, [githubUsername]);
+  }, [username]);
 
   const handlePressRepository = (repositoryId: string) => {
     router.push(`repositoryDetails?repositoryId=${repositoryId}`);
@@ -46,8 +47,8 @@ export default function Repositories() {
   return (
     <View className="flex-1 items-center justify-center bg-gray-900">
       <StatusBar style="light" />
-      <Text className="text-white text-3xl font-bold mb-8">
-        Repositórios de {githubUsername}
+      <Text className="text-white text-2xl font-bold mb-8">
+        Repositórios de {username}
       </Text>
       {isLoading && <ActivityIndicator size="large" color="#fff" />}
       {!isLoading && repositories.length === 0 && (

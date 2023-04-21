@@ -1,17 +1,17 @@
-import { useSearchParams } from "expo-router";
 import { StatusBar } from "expo-status-bar";
 import { useState, useEffect } from "react";
 import { ActivityIndicator, Image, Text, View } from "react-native";
+import { useGithubStore } from "../../store/github-store";
 
 export default function Home() {
-  const { githubUsername } = useSearchParams();
+  const { username } = useGithubStore();
 
   const [userData, setUserData] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-    if (githubUsername) {
-      fetch(`https://api.github.com/users/${githubUsername}`)
+    if (username) {
+      fetch(`https://api.github.com/users/${username}`)
         .then((response) => response.json())
         .then((data) => {
           setUserData(data);
@@ -19,7 +19,7 @@ export default function Home() {
         })
         .catch((error) => console.error(error));
     }
-  }, [githubUsername]);
+  }, [username]);
 
   return (
     <View className="flex-1 items-center justify-center bg-gray-900">
