@@ -55,7 +55,7 @@ export default function Repositories() {
   );
 
   return (
-    <View className="flex-1 bg-gray-900">
+    <View className="flex-1 bg-gray-900 pt-6">
       <StatusBar style="light" />
 
       <View className="px-4 pt-4">
