@@ -16,7 +16,6 @@ const StackLayout = () => {
       }}
     >
         <Stack.Screen name="index" options={{headerTitle : 'Login', headerShown : false}}  />
-        <Stack.Screen name="home/index" options={{headerTitle : 'Home'}}  />
         <Stack.Screen name="register" options={{presentation : 'modal' }}  />
     </Stack>
   );
