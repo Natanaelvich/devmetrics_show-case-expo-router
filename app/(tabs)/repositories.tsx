@@ -1,10 +1,11 @@
 import { useRouter } from "expo-router";
 import { StatusBar } from "expo-status-bar";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useCallback } from "react";
 import {
   ActivityIndicator,
   FlatList,
   Pressable,
+  RefreshControl,
   Text,
   View,
 } from "react-native";
@@ -17,9 +18,19 @@ export default function Repositories() {
   const [repositories, setRepositories] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
 
+  const fetchRepositories = useCallback(async () => {
+    setIsLoading(true);
     const response = await fetch(
       `https://api.github.com/users/${username}/repos?sort=created&order=desc`
     );
+    const data = await response.json();
+    setRepositories(data);
+    setIsLoading(false);
+  }, []);
+
+  useEffect(() => {
+    fetchRepositories();
+  }, [fetchRepositories]);
 
   const handlePressRepository = (repositoryId: string) => {
     router.push(`repositoryDetails?repositoryId=${repositoryId}`);
@@ -53,6 +64,14 @@ export default function Repositories() {
           data={repositories}
           renderItem={renderRepositoryItem}
           keyExtractor={(item) => item.id.toString()}
+          refreshControl={
+            <RefreshControl
+              refreshing={isLoading}
+              onRefresh={fetchRepositories}
+              colors={["#111", "#222", "#333"]}
+              tintColor={"#fff"}
+            />
+          }
         />
       )}
     </View>
