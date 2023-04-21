@@ -33,6 +33,18 @@ DevMetrics is built with the following technologies:
 - Zustand
 - Expo Router
 - NativeWind
+- Maestro
+
+## Tests
+
+To run the tests, you can run the following command:
+
+```bash
+
+maestro test .maestro/test.yml
+
+```
+ 
 ## Usage
 
 When you open the app, you will be asked to enter your GitHub username. Once you enter your username, you will be taken to the Home page where you can view your account details, repositories, and metrics.
