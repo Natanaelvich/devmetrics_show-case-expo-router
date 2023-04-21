@@ -1,6 +1,11 @@
 - # DevMetrics
 
 DevMetrics is a mobile app that allows you to get metrics of your GitHub account. With DevMetrics, you can view your repositories, details of your account, and metrics.
+
+## Video
+
+https://user-images.githubusercontent.com/52014318/233706683-cff1bfb9-332c-4a00-9f1e-e1b4372c4bd6.mp4
+
 ## Installation
 
 To run the app, you need to have Expo CLI installed. You can install Expo CLI with the following command:
@@ -20,8 +25,6 @@ cd devmetrics_show-case-expo-router
 npm install
 expo start
 ```
-
-
 
 Then, you can use your mobile device to scan the QR code that appears in the console to run the app.
 ## Technologies
