@@ -16,10 +16,11 @@ const TabsLayout = () => {
     >
       <Tabs.Screen
         name="home"
+        
         options={{
           headerShown: false,
           tabBarIcon: ({ color }) => (
-            <Feather name="home" size={24} color={color} />
+            <Feather testID="home-tab" name="home" size={24} color={color} />
           ),
         }}
       />
@@ -28,7 +29,7 @@ const TabsLayout = () => {
         options={{
           headerShown: false,
           tabBarIcon: ({ color }) => (
-            <Feather name="github" size={24} color={color} />
+            <Feather testID="repo-tab" name="github" size={24} color={color} />
           ),
         }}
       />

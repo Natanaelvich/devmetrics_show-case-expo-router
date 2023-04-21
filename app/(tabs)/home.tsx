@@ -45,7 +45,7 @@ export default function Home() {
   }, [username]);
 
   return (
-    <View className="flex-1 items-center bg-gray-900">
+    <View className="flex-1 items-center bg-gray-900" testID="home-container">
       <StatusBar style="light" />
 
       <View className="flex-row justify-between items-center px-6 py-10 w-full">

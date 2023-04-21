@@ -55,15 +55,16 @@ export default function Repositories() {
   );
 
   return (
-    <View className="flex-1 bg-gray-900 pt-6">
+    <View className="flex-1 bg-gray-900 pt-6" testID="repo-container">
       <StatusBar style="light" />
 
       <View className="px-4 pt-4">
         <Text className="text-white text-2xl font-bold mb-8">
-          Repositórios de {username}
+          Repositories of {username}
         </Text>
 
         <TextInput
+          testID="search-input"
           className="border-gray-400 p-2 mb-4 rounded bg-gray-800 text-white placeholder-gray-500 focus:border-blue-500 focus:outline-none"
           onChangeText={setSearchQuery}
           value={searchQuery}

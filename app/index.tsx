@@ -26,6 +26,7 @@ export default function Login() {
         </Text>
 
         <TextInput
+          testID="github-username-input"
           className="border border-gray-400 p-2 mb-4 rounded bg-gray-800 text-white placeholder-gray-500 focus:border-blue-500 focus:outline-none"
           placeholder="GitHub username"
           placeholderTextColor="#718096"
