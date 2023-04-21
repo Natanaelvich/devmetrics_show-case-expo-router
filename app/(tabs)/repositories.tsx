@@ -24,7 +24,7 @@ export default function Repositories() {
   const fetchRepositories = useCallback(async () => {
     setIsLoading(true);
     const response = await fetch(
-      `https://api.github.com/users/${username}/repos?sort=created&order=desc`
+      `https://api.github.com/users/${username}/repos?sort=updated&order=desc`
     );
     const data = await response.json();
     setRepositories(data);
