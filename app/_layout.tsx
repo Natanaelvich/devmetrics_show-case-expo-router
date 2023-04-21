@@ -5,9 +5,9 @@ const StackLayout = () => {
     <Stack
       screenOptions={{
         headerStyle: {
-          backgroundColor: "#111",
+          backgroundColor: "#2D3748",
         },
-        headerTintColor: "#fff",
+        headerTintColor: "#CBD5E0",
         headerTitleStyle: {
           fontWeight: "bold",
         },
@@ -16,7 +16,8 @@ const StackLayout = () => {
       }}
     >
         <Stack.Screen name="index" options={{headerTitle : 'Login', headerShown : false}}  />
-        <Stack.Screen name="register" options={{presentation : 'modal' }}  />
+        <Stack.Screen name='(tabs)' options={{headerShown : false}} />
+        <Stack.Screen name='metrics' options={{presentation : 'modal'}} />
     </Stack>
   );
 };
