@@ -7,9 +7,11 @@ import {
   Pressable,
   RefreshControl,
   Text,
+  TextInput,
   View,
 } from "react-native";
 import { useGithubStore } from "../../store/github-store";
+import { Repository } from "../repositoryDetails";
 
 export default function Repositories() {
   const router = useRouter();
@@ -17,6 +19,7 @@ export default function Repositories() {
 
   const [repositories, setRepositories] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
+  const [searchQuery, setSearchQuery] = useState("");
 
   const fetchRepositories = useCallback(async () => {
     setIsLoading(true);
@@ -36,6 +39,10 @@ export default function Repositories() {
     router.push(`repositoryDetails?repositoryId=${repositoryId}`);
   };
 
+  const filteredRepositories = repositories.filter((repo: Repository) =>
+    repo.name.toLowerCase().includes(searchQuery.toLowerCase())
+  );
+
   const renderRepositoryItem = ({ item }) => (
     <Pressable
       className="border-b border-gray-700 p-4"
@@ -48,11 +55,23 @@ export default function Repositories() {
   );
 
   return (
-    <View className="flex-1 items-center justify-center bg-gray-900">
+    <View className="flex-1 bg-gray-900">
       <StatusBar style="light" />
-      <Text className="text-white text-2xl font-bold mb-8">
-        Repositórios de {username}
-      </Text>
+
+      <View className="px-4 pt-4">
+        <Text className="text-white text-2xl font-bold mb-8">
+          Repositórios de {username}
+        </Text>
+
+        <TextInput
+          className="border-gray-400 p-2 mb-4 rounded bg-gray-800 text-white placeholder-gray-500 focus:border-blue-500 focus:outline-none"
+          onChangeText={setSearchQuery}
+          value={searchQuery}
+          placeholder="Search repository..."
+          placeholderTextColor="#999"
+        />
+      </View>
+
       {isLoading && <ActivityIndicator size="large" color="#fff" />}
       {!isLoading && repositories.length === 0 && (
         <Text className="text-white text-lg">
@@ -61,7 +80,7 @@ export default function Repositories() {
       )}
       {!isLoading && repositories.length > 0 && (
         <FlatList
-          data={repositories}
+          data={filteredRepositories}
           renderItem={renderRepositoryItem}
           keyExtractor={(item) => item.id.toString()}
           refreshControl={
