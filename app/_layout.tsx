@@ -11,13 +11,20 @@ const StackLayout = () => {
         headerTitleStyle: {
           fontWeight: "bold",
         },
-        animation : 'slide_from_right',
-        animationDuration : 500,
+        animation: "slide_from_right",
+        animationDuration: 500,
       }}
     >
-        <Stack.Screen name="index" options={{headerTitle : 'Login', headerShown : false}}  />
-        <Stack.Screen name='(tabs)' options={{headerShown : false}} />
-        <Stack.Screen name='metrics' options={{presentation : 'modal'}} />
+      <Stack.Screen
+        name="index"
+        options={{ headerTitle: "Login", headerShown: false }}
+      />
+      <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
+      <Stack.Screen name="metrics" options={{ presentation: "modal" }} />
+      <Stack.Screen
+        name="repositoryDetails"
+        options={{ headerTitle: "Repository details", presentation: "modal" }}
+      />
     </Stack>
   );
 };
