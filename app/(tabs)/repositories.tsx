@@ -17,17 +17,9 @@ export default function Repositories() {
   const [repositories, setRepositories] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
 
-  useEffect(() => {
-    if (username) {
-      fetch(`https://api.github.com/users/${username}/repos?per_page=20`)
-        .then((response) => response.json())
-        .then((data) => {
-          setRepositories(data);
-          setIsLoading(false);
-        })
-        .catch((error) => console.error(error));
-    }
-  }, [username]);
+    const response = await fetch(
+      `https://api.github.com/users/${username}/repos?sort=created&order=desc`
+    );
 
   const handlePressRepository = (repositoryId: string) => {
     router.push(`repositoryDetails?repositoryId=${repositoryId}`);
