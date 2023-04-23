@@ -1,10 +1,24 @@
 {
   "expo": {
-    "scheme": "acme",
+    "scheme": "devmetrics",
     "web": {
       "bundler": "metro"
     },
     "name": "DevMetrics",
-    "slug": "DevMetrics"
+    "slug": "DevMetrics",
+    "extra": {
+      "eas": {
+        "projectId": "8ae64bea-1ecc-4fac-a0dc-087c82b149e1"
+      }
+    },
+    "ios": {
+      "bundleIdentifier": "com.natanaelvich.devmetrics",
+      "supportsTablet": true
+    },
+    "android": {
+      "package": "com.natanaelvich.devmetrics",
+      "versionCode": 1
+    },
+
   }
 }
