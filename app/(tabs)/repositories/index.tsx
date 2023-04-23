@@ -10,8 +10,9 @@ import {
   TextInput,
   View,
 } from "react-native";
-import { useGithubStore } from "../../store/github-store";
-import { Repository } from "../repositoryDetails";
+import { useGithubStore } from "../../../store/github-store";
+import { Repository } from "./[id]";
+
 
 export default function Repositories() {
   const router = useRouter();
@@ -36,7 +37,7 @@ export default function Repositories() {
   }, [fetchRepositories]);
 
   const handlePressRepository = (repositoryId: string) => {
-    router.push(`repositoryDetails?repositoryId=${repositoryId}`);
+    router.push(`repositories/${repositoryId}`);
   };
 
   const filteredRepositories = repositories.filter((repo: Repository) =>

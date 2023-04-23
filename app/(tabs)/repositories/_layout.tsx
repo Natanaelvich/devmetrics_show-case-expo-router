@@ -1,6 +1,7 @@
 import { Stack } from "expo-router";
+import Feather from "@expo/vector-icons/Feather";
 
-const StackLayout = () => {
+const RepositoriesLayout = () => {
   return (
     <Stack
       screenOptions={{
@@ -15,14 +16,11 @@ const StackLayout = () => {
         animationDuration: 500,
       }}
     >
-      <Stack.Screen
-        name="index"
-        options={{ headerTitle: "Login", headerShown: false }}
-      />
-      <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
-      <Stack.Screen name="metrics" options={{ presentation: "modal" }} />
+      <Stack.Screen name="index" options={{
+        headerShown: false,
+      }} />
     </Stack>
   );
 };
 
-export default StackLayout;
+export default RepositoriesLayout;

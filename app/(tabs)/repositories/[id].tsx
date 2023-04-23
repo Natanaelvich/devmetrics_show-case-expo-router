@@ -1,4 +1,4 @@
-import { useSearchParams } from "expo-router";
+import { Stack, useSearchParams } from "expo-router";
 import { StatusBar } from "expo-status-bar";
 import { useEffect, useState } from "react";
 import { Image, Text, View } from "react-native";
@@ -19,16 +19,16 @@ export type Repository = {
 };
 
 type SearchParamsRepositoryDetails = {
-  repositoryId: string;
+  id: string;
 };
 
 const RepositoryDetails = () => {
-  const { repositoryId } = useSearchParams<SearchParamsRepositoryDetails>();
+  const { id } = useSearchParams<SearchParamsRepositoryDetails>();
 
   const [repository, setRepository] = useState<Repository>();
 
   useEffect(() => {
-    fetch(`https://api.github.com/repositories/${repositoryId}`)
+    fetch(`https://api.github.com/repositories/${id}`)
       .then((response) => response.json())
       .then((data) => setRepository(data))
       .catch((error) => console.error(error));
@@ -50,6 +50,13 @@ const RepositoryDetails = () => {
   return (
     <View className={containerClass}>
       <StatusBar style="light" />
+
+      <Stack.Screen
+        options={{
+          headerTitle: "Repository Details",
+        }}
+      />
+
       <Text className={`${textClass} ${textBoldClass} text-4xl mb-4`}>
         {repository.name}
       </Text>
