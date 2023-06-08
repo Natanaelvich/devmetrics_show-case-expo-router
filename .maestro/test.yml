@@ -10,7 +10,8 @@ appId: com.devmetrics.app
 - assertVisible: "Wellcome natanaelvich"
 - assertVisible: "Natanael"
 - assertVisible: "Passionate about technology and lover of challenges"
-- tapOn: "Account Details"
+- tapOn:
+    id: "account-details-button"
 - assertVisible: "natanaelvich"
 - assertVisible: "Natanael"
 - assertVisible: "Bio"
