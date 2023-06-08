@@ -80,6 +80,7 @@ export default function Home() {
             <Pressable
               className="bg-gray-800 rounded-md p-4 flex items-center justify-center w-1/3 mx-2"
               onPress={handleAccountDetailsPress}
+              testID="account-details-button"
             >
               <Feather name="user" size={32} color="#fff" />
               <Text className="text-white font-bold ml-2">Account Details</Text>
