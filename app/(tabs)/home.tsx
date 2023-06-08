@@ -29,7 +29,7 @@ export default function Home() {
     setUsername(null);
 
     // Navigate to the login screen
-    router.push("login");
+    router.push("/");
   };
 
   useEffect(() => {
