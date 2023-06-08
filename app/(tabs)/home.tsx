@@ -4,10 +4,12 @@ import { ActivityIndicator, Image, Pressable, Text, View } from "react-native";
 import { useGithubStore } from "../../store/github-store";
 import { useRouter } from "expo-router";
 import Feather from "@expo/vector-icons/Feather";
+import { useSafeAreaInsets } from "react-native-safe-area-context";
 
 export default function Home() {
   const { username, setUsername } = useGithubStore();
   const router = useRouter();
+  const {top}  = useSafeAreaInsets();
 
   const [userData, setUserData] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
@@ -45,7 +47,7 @@ export default function Home() {
   }, [username]);
 
   return (
-    <View className="flex-1 items-center bg-gray-900" testID="home-container">
+    <View className="flex-1 items-center bg-gray-900" testID="home-container" style={{paddingTop: top}}>
       <StatusBar style="light" />
 
       <View className="flex-row justify-between items-center px-6 py-10 w-full">
