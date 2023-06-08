@@ -12,11 +12,13 @@ import {
 } from "react-native";
 import { useGithubStore } from "../../../store/github-store";
 import { Repository } from "./[id]";
+import { useSafeAreaInsets } from "react-native-safe-area-context";
 
 
 export default function Repositories() {
   const router = useRouter();
   const { username } = useGithubStore();
+  const { top } = useSafeAreaInsets();
 
   const [repositories, setRepositories] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
@@ -56,7 +58,7 @@ export default function Repositories() {
   );
 
   return (
-    <View className="flex-1 bg-gray-900 pt-6" testID="repo-container">
+    <View className="flex-1 bg-gray-900 pt-4" testID="repositories-container" style={{ paddingTop: top }}>
       <StatusBar style="light" />
 
       <View className="px-4 pt-4">
