@@ -9,6 +9,7 @@ import {
 } from "react-native";
 import { useState, useEffect } from "react";
 import { useGithubStore } from "../store/github-store";
+import { useSafeAreaInsets } from "react-native-safe-area-context";
 
 interface GitHubUser {
   avatar_url: string;
@@ -28,6 +29,7 @@ interface GitHubUser {
 
 const AccountDetails = ({ route }: any) => {
   const { username } = useGithubStore();
+  const {bottom} = useSafeAreaInsets();
 
   const [user, setUser] = useState<GitHubUser | null>(null);
 
@@ -48,7 +50,7 @@ const AccountDetails = ({ route }: any) => {
   }, []);
 
   return (
-    <ScrollView className="flex-1 bg-gray-900">
+    <ScrollView className="flex-1 bg-gray-900" contentContainerStyle={{paddingBottom: bottom}}>
       <Stack.Screen
         options={{
           title: username,
