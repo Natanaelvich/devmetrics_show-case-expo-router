@@ -1,4 +1,7 @@
 import { Stack } from "expo-router";
+import MaterialIcons from "@expo/vector-icons/MaterialIcons";
+import { TouchableOpacity } from "react-native-gesture-handler";
+import ButtonClose from "../src/components/ButtonClose";
 
 const StackLayout = () => {
   return (
@@ -20,7 +23,15 @@ const StackLayout = () => {
         options={{ headerTitle: "Login", headerShown: false }}
       />
       <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
-      <Stack.Screen name="metrics" options={{ presentation: "modal" }} />
+      <Stack.Screen
+        name="metrics"
+        options={{
+          presentation: "modal",
+          headerRight: () => (
+            <ButtonClose />
+          ),
+        }}
+      />
     </Stack>
   );
 };
