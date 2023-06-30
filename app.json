@@ -19,6 +19,8 @@
       "package": "com.natanaelvich.devmetrics",
       "versionCode": 1
     },
-
+    "plugins": [
+      "expo-router"
+    ]
   }
 }
