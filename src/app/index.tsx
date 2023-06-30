@@ -7,7 +7,7 @@ export default function Login() {
   const router = useRouter();
   const { setUsername } = useGithubStore();
 
-  const [githubUsername, setGithubUsername] = useState("");
+  const [githubUsername, setGithubUsername] = useState(__DEV__ ? "natanaelvich" : "");
 
   const handleLogin = () => {
     if (githubUsername === "") {
