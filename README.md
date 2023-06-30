@@ -19,6 +19,10 @@ https://user-images.githubusercontent.com/52014318/233706683-cff1bfb9-332c-4a00-
     <img src="https://user-images.githubusercontent.com/52014318/233884875-55f72352-861c-4ea9-b92a-c0851cb5183e.png" width="200"/>
 </div>
 
+![image](https://github.com/Natanaelvich/devmetrics_show-case-expo-router/assets/52014318/4c953e8b-10df-44cc-8297-26150880c34b)
+![image](https://github.com/Natanaelvich/devmetrics_show-case-expo-router/assets/52014318/50ef5d39-0a65-4098-9119-2456717e392b)
+
+
 
 ## Installation
 
