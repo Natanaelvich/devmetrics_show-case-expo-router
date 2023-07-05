@@ -19,8 +19,9 @@
       "package": "com.natanaelvich.devmetrics",
       "versionCode": 1
     },
-    "plugins": [
-      "expo-router"
-    ]
+    "plugins": ["expo-router"],
+    "experiments": {
+      "tsconfigPaths": true
+    }
   }
 }
