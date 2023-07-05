@@ -31,7 +31,7 @@ export default function Repositories() {
     const data = await response.json()
     setRepositories(data)
     setIsLoading(false)
-  }, [])
+  }, [username])
 
   useEffect(() => {
     fetchRepositories()

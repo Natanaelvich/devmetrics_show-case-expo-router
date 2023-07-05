@@ -1,7 +1,7 @@
 import { Stack, useSearchParams } from 'expo-router'
 import { StatusBar } from 'expo-status-bar'
 import { useEffect, useState } from 'react'
-import { Image, Text, View } from 'react-native'
+import { Text, View } from 'react-native'
 
 export type Repository = {
   id: number
@@ -32,12 +32,11 @@ const RepositoryDetails = () => {
       .then((response) => response.json())
       .then((data) => setRepository(data))
       .catch((error) => console.error(error))
-  }, [])
+  }, [id])
 
   const containerClass = 'flex-1 bg-gray-900 p-4'
   const textClass = 'text-white'
   const textBoldClass = 'font-bold'
-  const imageClass = 'w-24 h-24 rounded-full mb-4'
 
   if (!repository) {
     return (

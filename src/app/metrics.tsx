@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react'
 import { View, Text } from 'react-native'
-import { useRoute } from '@react-navigation/native'
 import { useGithubStore } from '../store/github-store'
 import { Stack } from 'expo-router'
 

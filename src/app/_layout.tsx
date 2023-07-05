@@ -1,6 +1,4 @@
 import { Stack } from 'expo-router'
-import MaterialIcons from '@expo/vector-icons/MaterialIcons'
-import { TouchableOpacity } from 'react-native-gesture-handler'
 import ButtonClose from '../components/ButtonClose'
 
 const StackLayout = () => {

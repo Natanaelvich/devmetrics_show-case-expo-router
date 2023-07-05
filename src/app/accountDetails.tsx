@@ -1,12 +1,5 @@
-import { Link, Stack } from 'expo-router'
-import {
-  StatusBar,
-  Text,
-  View,
-  Image,
-  Pressable,
-  ScrollView,
-} from 'react-native'
+import { Stack } from 'expo-router'
+import { Text, View, Image, ScrollView } from 'react-native'
 import { useState, useEffect } from 'react'
 import { useGithubStore } from '../store/github-store'
 import { useSafeAreaInsets } from 'react-native-safe-area-context'
@@ -45,7 +38,7 @@ const AccountDetails = ({ route }: any) => {
     }
 
     fetchUser()
-  }, [])
+  }, [username])
 
   return (
     <ScrollView
@@ -64,6 +57,7 @@ const AccountDetails = ({ route }: any) => {
             <Image
               source={{ uri: user.avatar_url }}
               className="w-full h-full"
+              alt="User avatar"
             />
           </View>
           <Text className="text-white text-3xl font-bold mb-8">

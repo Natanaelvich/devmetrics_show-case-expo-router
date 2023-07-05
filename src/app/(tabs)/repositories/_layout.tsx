@@ -1,5 +1,4 @@
 import { Stack } from 'expo-router'
-import Feather from '@expo/vector-icons/Feather'
 
 const RepositoriesLayout = () => {
   return (

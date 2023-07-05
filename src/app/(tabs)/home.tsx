@@ -71,6 +71,7 @@ export default function Home() {
           <Image
             source={{ uri: userData.avatar_url }}
             className="w-32 h-32 rounded-full mb-8"
+            alt="User avatar"
           />
           <Text className="text-white text-2xl mb-4">{userData.name}</Text>
           <Text className="text-white text-lg mb-8">{userData.bio}</Text>
