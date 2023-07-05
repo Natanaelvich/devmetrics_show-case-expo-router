@@ -4,7 +4,7 @@ import { ActivityIndicator, Image, Pressable, Text, View } from 'react-native'
 import { useRouter } from 'expo-router'
 import Feather from '@expo/vector-icons/Feather'
 import { useSafeAreaInsets } from 'react-native-safe-area-context'
-import { useGithubStore } from '../../store/github-store'
+import { useGithubStore } from '@/store/github-store'
 
 export default function Home() {
   const { username, setUsername } = useGithubStore()

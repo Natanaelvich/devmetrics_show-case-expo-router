@@ -10,9 +10,9 @@ import {
   TextInput,
   View,
 } from 'react-native'
-import { useGithubStore } from '../../../store/github-store'
 import { Repository } from './[id]'
 import { useSafeAreaInsets } from 'react-native-safe-area-context'
+import { useGithubStore } from '@/store/github-store'
 
 export default function Repositories() {
   const router = useRouter()
