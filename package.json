@@ -8,7 +8,9 @@
     "android": "expo start --android",
     "ios": "expo start --ios",
     "web": "expo start --web",
-    "name": "devmetrics_show-case-expo-router"
+    "name": "devmetrics_show-case-expo-router",
+    "lint": "eslint . --ext .js,.jsx,.ts,.tsx && tsc --noEmit",
+    "lint:fix": "eslint . --ext .js,.jsx,.ts,.tsx --fix && tsc --noEmit"
   },
   "dependencies": {
     "@rocketseat/eslint-config": "^1.2.0",
