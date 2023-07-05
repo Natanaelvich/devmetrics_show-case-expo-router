@@ -1,49 +1,49 @@
-import React, { useEffect, useState } from "react";
-import { View, Text } from "react-native";
-import { useRoute } from "@react-navigation/native";
-import { useGithubStore } from "../store/github-store";
-import { Stack } from "expo-router";
+import React, { useEffect, useState } from 'react'
+import { View, Text } from 'react-native'
+import { useRoute } from '@react-navigation/native'
+import { useGithubStore } from '../store/github-store'
+import { Stack } from 'expo-router'
 
 type Stats = {
-  numRepos: number;
-  numStars: number;
-  numForks: number;
-};
+  numRepos: number
+  numStars: number
+  numForks: number
+}
 
 export default function Metrics() {
-  const { username } = useGithubStore();
+  const { username } = useGithubStore()
 
   const [stats, setStats] = useState<Stats>({
     numRepos: 0,
     numStars: 0,
     numForks: 0,
-  });
+  })
 
   useEffect(() => {
     const fetchStats = async () => {
       const response = await fetch(
-        `https://api.github.com/users/${username}/repos`
-      );
-      const repos = await response.json();
-      const numRepos = repos.length;
+        `https://api.github.com/users/${username}/repos`,
+      )
+      const repos = await response.json()
+      const numRepos = repos.length
       const numStars = repos.reduce(
         (total: number, repo: any) => total + repo.stargazers_count,
-        0
-      );
+        0,
+      )
       const numForks = repos.reduce(
         (total: number, repo: any) => total + repo.forks_count,
-        0
-      );
-      setStats({ numRepos, numStars, numForks });
-    };
-    fetchStats();
-  }, [username]);
+        0,
+      )
+      setStats({ numRepos, numStars, numForks })
+    }
+    fetchStats()
+  }, [username])
 
   return (
     <View className="flex-1 bg-gray-900 px-4 py-8">
       <Stack.Screen
         options={{
-          title: "Metrics",
+          title: 'Metrics',
         }}
       />
 
@@ -73,5 +73,5 @@ export default function Metrics() {
         </View>
       </View>
     </View>
-  );
+  )
 }

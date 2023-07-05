@@ -1,50 +1,50 @@
-import { Stack, useSearchParams } from "expo-router";
-import { StatusBar } from "expo-status-bar";
-import { useEffect, useState } from "react";
-import { Image, Text, View } from "react-native";
+import { Stack, useSearchParams } from 'expo-router'
+import { StatusBar } from 'expo-status-bar'
+import { useEffect, useState } from 'react'
+import { Image, Text, View } from 'react-native'
 
 export type Repository = {
-  id: number;
-  name: string;
-  full_name: string;
-  description: string;
-  language: string;
-  stargazers_count: number;
-  forks_count: number;
-  open_issues_count: number;
+  id: number
+  name: string
+  full_name: string
+  description: string
+  language: string
+  stargazers_count: number
+  forks_count: number
+  open_issues_count: number
   owner: {
-    login: string;
-    avatar_url: string;
-  };
-};
+    login: string
+    avatar_url: string
+  }
+}
 
 type SearchParamsRepositoryDetails = {
-  id: string;
-};
+  id: string
+}
 
 const RepositoryDetails = () => {
-  const { id } = useSearchParams<SearchParamsRepositoryDetails>();
+  const { id } = useSearchParams<SearchParamsRepositoryDetails>()
 
-  const [repository, setRepository] = useState<Repository>();
+  const [repository, setRepository] = useState<Repository>()
 
   useEffect(() => {
     fetch(`https://api.github.com/repositories/${id}`)
       .then((response) => response.json())
       .then((data) => setRepository(data))
-      .catch((error) => console.error(error));
-  }, []);
+      .catch((error) => console.error(error))
+  }, [])
 
-  const containerClass = "flex-1 bg-gray-900 p-4";
-  const textClass = "text-white";
-  const textBoldClass = "font-bold";
-  const imageClass = "w-24 h-24 rounded-full mb-4";
+  const containerClass = 'flex-1 bg-gray-900 p-4'
+  const textClass = 'text-white'
+  const textBoldClass = 'font-bold'
+  const imageClass = 'w-24 h-24 rounded-full mb-4'
 
   if (!repository) {
     return (
       <View className="flex-1 items-center justify-center bg-gray-900">
         <Text className="text-white text-2xl">Loading...</Text>
       </View>
-    );
+    )
   }
 
   return (
@@ -53,7 +53,7 @@ const RepositoryDetails = () => {
 
       <Stack.Screen
         options={{
-          headerTitle: "Repository Details",
+          headerTitle: 'Repository Details',
         }}
       />
 
@@ -63,7 +63,7 @@ const RepositoryDetails = () => {
       <Text className={`${textClass} mb-8`}>{repository.description}</Text>
       <View className="flex-row mb-2">
         <Text className={`${textClass} ${textBoldClass} mr-2`}>Language:</Text>
-        <Text className={textClass}>{repository.language || "Unknown"}</Text>
+        <Text className={textClass}>{repository.language || 'Unknown'}</Text>
       </View>
       <View className="flex-row mb-2">
         <Text className={`${textClass} ${textBoldClass} mr-2`}>Stars:</Text>
@@ -78,7 +78,7 @@ const RepositoryDetails = () => {
         <Text className={textClass}>{repository.open_issues_count}</Text>
       </View>
     </View>
-  );
-};
+  )
+}
 
-export default RepositoryDetails;
+export default RepositoryDetails

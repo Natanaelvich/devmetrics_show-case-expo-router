@@ -1,21 +1,21 @@
-import { Tabs } from "expo-router";
-import Feather from "@expo/vector-icons/Feather";
+import { Tabs } from 'expo-router'
+import Feather from '@expo/vector-icons/Feather'
 
 const TabsLayout = () => {
   return (
     <Tabs
       screenOptions={{
-        tabBarActiveTintColor: "#90CDF4",
-        tabBarInactiveTintColor: "#CBD5E0",
+        tabBarActiveTintColor: '#90CDF4',
+        tabBarInactiveTintColor: '#CBD5E0',
         tabBarStyle: {
-          backgroundColor: "#2D3748",
-          borderTopColor: "#4A5568",
+          backgroundColor: '#2D3748',
+          borderTopColor: '#4A5568',
           borderTopWidth: 1,
         },
         tabBarLabelStyle: {
-            fontSize: 12,
-            fontWeight: "bold",
-            marginBottom: 4,
+          fontSize: 12,
+          fontWeight: 'bold',
+          marginBottom: 4,
         },
         tabBarHideOnKeyboard: true,
       }}
@@ -39,7 +39,7 @@ const TabsLayout = () => {
         }}
       />
     </Tabs>
-  );
-};
+  )
+}
 
-export default TabsLayout;
+export default TabsLayout

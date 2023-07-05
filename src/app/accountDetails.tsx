@@ -1,4 +1,4 @@
-import { Link, Stack } from "expo-router";
+import { Link, Stack } from 'expo-router'
 import {
   StatusBar,
   Text,
@@ -6,51 +6,52 @@ import {
   Image,
   Pressable,
   ScrollView,
-} from "react-native";
-import { useState, useEffect } from "react";
-import { useGithubStore } from "../store/github-store";
-import { useSafeAreaInsets } from "react-native-safe-area-context";
+} from 'react-native'
+import { useState, useEffect } from 'react'
+import { useGithubStore } from '../store/github-store'
+import { useSafeAreaInsets } from 'react-native-safe-area-context'
 
 interface GitHubUser {
-  avatar_url: string;
-  name: string;
-  bio: string;
-  email: string;
-  blog: string;
-  company: string;
-  created_at: string;
-  followers: number;
-  following: number;
-  location: string;
-  public_gists: number;
-  public_repos: number;
-  html_url: string;
+  avatar_url: string
+  name: string
+  bio: string
+  email: string
+  blog: string
+  company: string
+  created_at: string
+  followers: number
+  following: number
+  location: string
+  public_gists: number
+  public_repos: number
+  html_url: string
 }
 
 const AccountDetails = ({ route }: any) => {
-  const { username } = useGithubStore();
-  const {bottom} = useSafeAreaInsets();
+  const { username } = useGithubStore()
+  const { bottom } = useSafeAreaInsets()
 
-  const [user, setUser] = useState<GitHubUser | null>(null);
+  const [user, setUser] = useState<GitHubUser | null>(null)
 
   useEffect(() => {
     const fetchUser = async () => {
       try {
-        const response = await fetch(
-          `https://api.github.com/users/${username}`
-        );
-        const data = await response.json();
-        setUser(data);
+        const response = await fetch(`https://api.github.com/users/${username}`)
+        const data = await response.json()
+        setUser(data)
       } catch (error) {
-        console.log(error);
+        console.log(error)
       }
-    };
+    }
 
-    fetchUser();
-  }, []);
+    fetchUser()
+  }, [])
 
   return (
-    <ScrollView className="flex-1 bg-gray-900" contentContainerStyle={{paddingBottom: bottom}}>
+    <ScrollView
+      className="flex-1 bg-gray-900"
+      contentContainerStyle={{ paddingBottom: bottom }}
+    >
       <Stack.Screen
         options={{
           title: username,
@@ -101,7 +102,7 @@ const AccountDetails = ({ route }: any) => {
         </Text>
       )}
     </ScrollView>
-  );
-};
+  )
+}
 
-export default AccountDetails;
+export default AccountDetails

@@ -1,6 +1,6 @@
-import { useRouter } from "expo-router";
-import { StatusBar } from "expo-status-bar";
-import { useState, useEffect, useCallback } from "react";
+import { useRouter } from 'expo-router'
+import { StatusBar } from 'expo-status-bar'
+import { useState, useEffect, useCallback } from 'react'
 import {
   ActivityIndicator,
   FlatList,
@@ -9,42 +9,41 @@ import {
   Text,
   TextInput,
   View,
-} from "react-native";
-import { useGithubStore } from "../../../store/github-store";
-import { Repository } from "./[id]";
-import { useSafeAreaInsets } from "react-native-safe-area-context";
-
+} from 'react-native'
+import { useGithubStore } from '../../../store/github-store'
+import { Repository } from './[id]'
+import { useSafeAreaInsets } from 'react-native-safe-area-context'
 
 export default function Repositories() {
-  const router = useRouter();
-  const { username } = useGithubStore();
-  const { top } = useSafeAreaInsets();
+  const router = useRouter()
+  const { username } = useGithubStore()
+  const { top } = useSafeAreaInsets()
 
-  const [repositories, setRepositories] = useState([]);
-  const [isLoading, setIsLoading] = useState(true);
-  const [searchQuery, setSearchQuery] = useState("");
+  const [repositories, setRepositories] = useState([])
+  const [isLoading, setIsLoading] = useState(true)
+  const [searchQuery, setSearchQuery] = useState('')
 
   const fetchRepositories = useCallback(async () => {
-    setIsLoading(true);
+    setIsLoading(true)
     const response = await fetch(
-      `https://api.github.com/users/${username}/repos?sort=updated&order=desc`
-    );
-    const data = await response.json();
-    setRepositories(data);
-    setIsLoading(false);
-  }, []);
+      `https://api.github.com/users/${username}/repos?sort=updated&order=desc`,
+    )
+    const data = await response.json()
+    setRepositories(data)
+    setIsLoading(false)
+  }, [])
 
   useEffect(() => {
-    fetchRepositories();
-  }, [fetchRepositories]);
+    fetchRepositories()
+  }, [fetchRepositories])
 
   const handlePressRepository = (repositoryId: string) => {
-    router.push(`repositories/${repositoryId}`);
-  };
+    router.push(`repositories/${repositoryId}`)
+  }
 
   const filteredRepositories = repositories.filter((repo: Repository) =>
-    repo.name.toLowerCase().includes(searchQuery.toLowerCase())
-  );
+    repo.name.toLowerCase().includes(searchQuery.toLowerCase()),
+  )
 
   const renderRepositoryItem = ({ item }) => (
     <Pressable
@@ -55,10 +54,14 @@ export default function Repositories() {
       <Text className="text-gray-400 mb-2">{item.description}</Text>
       <Text className="text-gray-400">{item.language}</Text>
     </Pressable>
-  );
+  )
 
   return (
-    <View className="flex-1 bg-gray-900 pt-4" testID="repositories-container" style={{ paddingTop: top }}>
+    <View
+      className="flex-1 bg-gray-900 pt-4"
+      testID="repositories-container"
+      style={{ paddingTop: top }}
+    >
       <StatusBar style="light" />
 
       <View className="px-4 pt-4">
@@ -91,12 +94,12 @@ export default function Repositories() {
             <RefreshControl
               refreshing={isLoading}
               onRefresh={fetchRepositories}
-              colors={["#111", "#222", "#333"]}
-              tintColor={"#fff"}
+              colors={['#111', '#222', '#333']}
+              tintColor={'#fff'}
             />
           }
         />
       )}
     </View>
-  );
+  )
 }

@@ -1,6 +1,5 @@
 import { StateStorage } from 'zustand/middleware'
 
-
 const zustandStorage: StateStorage = {
   setItem: (name, value) => {
     return console.log(`Persisting ${name} to ${value}`)

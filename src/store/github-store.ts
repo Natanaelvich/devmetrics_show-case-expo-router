@@ -1,21 +1,21 @@
-import { create } from "zustand";
-import { createJSONStorage, persist } from "zustand/middleware";
-import zustandStorage from "./middleware-persist";
+import { create } from 'zustand'
+import { createJSONStorage, persist } from 'zustand/middleware'
+import zustandStorage from './middleware-persist'
 
 type GithubStore = {
-  username: string;
-  setUsername: (username: string) => void;
-};
+  username: string
+  setUsername: (username: string) => void
+}
 
 export const useGithubStore = create(
   persist<GithubStore>(
     (set) => ({
-      username: "",
+      username: '',
       setUsername: (username: string) => set({ username }),
     }),
     {
-      name: "github-storage",
+      name: 'github-storage',
       storage: createJSONStorage(() => zustandStorage),
-    }
-  )
-);
+    },
+  ),
+)

@@ -1,26 +1,29 @@
-import { Stack } from "expo-router";
-import Feather from "@expo/vector-icons/Feather";
+import { Stack } from 'expo-router'
+import Feather from '@expo/vector-icons/Feather'
 
 const RepositoriesLayout = () => {
   return (
     <Stack
       screenOptions={{
         headerStyle: {
-          backgroundColor: "#2D3748",
+          backgroundColor: '#2D3748',
         },
-        headerTintColor: "#CBD5E0",
+        headerTintColor: '#CBD5E0',
         headerTitleStyle: {
-          fontWeight: "bold",
+          fontWeight: 'bold',
         },
-        animation: "slide_from_right",
+        animation: 'slide_from_right',
         animationDuration: 500,
       }}
     >
-      <Stack.Screen name="index" options={{
-        headerShown: false,
-      }} />
+      <Stack.Screen
+        name="index"
+        options={{
+          headerShown: false,
+        }}
+      />
     </Stack>
-  );
-};
+  )
+}
 
-export default RepositoriesLayout;
+export default RepositoriesLayout
