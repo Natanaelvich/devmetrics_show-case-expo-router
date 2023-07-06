@@ -15,15 +15,15 @@ export default function Home() {
   const [isLoading, setIsLoading] = useState(true)
 
   const handleRepositoriesPress = () => {
-    router.push('repositories')
+    router.push('/repositories/')
   }
 
   const handleAccountDetailsPress = () => {
-    router.push('accountDetails')
+    router.push('/accountDetails')
   }
 
   const handleMetricsPress = () => {
-    router.push('metrics')
+    router.push('/metrics')
   }
 
   const handleLogout = () => {

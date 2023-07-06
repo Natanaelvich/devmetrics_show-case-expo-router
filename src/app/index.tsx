@@ -16,7 +16,7 @@ export default function Login() {
       Alert.alert('Please enter your GitHub username.')
     } else {
       setUsername(githubUsername)
-      router.push('home')
+      router.push('/home')
     }
   }
 

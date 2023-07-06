@@ -38,7 +38,7 @@ export default function Repositories() {
   }, [fetchRepositories])
 
   const handlePressRepository = (repositoryId: string) => {
-    router.push(`repositories/${repositoryId}`)
+    router.push(`/repositories/${repositoryId}`)
   }
 
   const filteredRepositories = repositories.filter((repo: Repository) =>
