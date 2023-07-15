@@ -50,9 +50,15 @@ export default function Repositories() {
       className="border-b border-gray-700 p-4"
       onPress={() => handlePressRepository(item.id)}
     >
-      <Text className="text-white text-lg font-bold mb-2">{item.name}</Text>
-      <Text className="text-gray-400 mb-2">{item.description}</Text>
-      <Text className="text-gray-400">{item.language}</Text>
+      <Text className="text-white text-lg font-bold mb-2" testID="title-repo">
+        {item.name}
+      </Text>
+      <Text className="text-gray-400 mb-2" testID="desc-repo">
+        {item.description}
+      </Text>
+      <Text className="text-gray-400" testID="language-repo">
+        {item.language}
+      </Text>
     </Pressable>
   )
 

@@ -82,7 +82,12 @@ export default function Home() {
               onPress={handleRepositoriesPress}
             >
               <Feather name="github" size={32} color="#fff" />
-              <Text className="text-white font-bold ml-2">Repositories</Text>
+              <Text
+                className="text-white font-bold ml-2"
+                testID="text-button-home"
+              >
+                Repositories
+              </Text>
             </Pressable>
             <Pressable
               className="bg-gray-800 rounded-md p-4 flex items-center justify-center w-1/3 mx-2"
@@ -90,14 +95,24 @@ export default function Home() {
               testID="account-details-button"
             >
               <Feather name="user" size={32} color="#fff" />
-              <Text className="text-white font-bold ml-2">Account Details</Text>
+              <Text
+                className="text-white font-bold ml-2"
+                testID="text-button-home"
+              >
+                Account Details
+              </Text>
             </Pressable>
             <Pressable
               className="bg-gray-800 rounded-md p-4 flex items-center justify-center w-1/3 ml-4"
               onPress={handleMetricsPress}
             >
               <Feather name="bar-chart" size={32} color="#fff" />
-              <Text className="text-white font-bold ml-2">Metrics</Text>
+              <Text
+                className="text-white font-bold ml-2"
+                testID="text-button-home"
+              >
+                Metrics
+              </Text>
             </Pressable>
           </View>
         </>

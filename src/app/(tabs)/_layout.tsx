@@ -24,6 +24,7 @@ const TabsLayout = () => {
         name="home"
         options={{
           headerShown: false,
+          tabBarTestID: 'home-tab',
           tabBarIcon: ({ color }) => (
             <Feather testID="home-tab" name="home" size={24} color={color} />
           ),
@@ -33,6 +34,7 @@ const TabsLayout = () => {
         name="repositories"
         options={{
           headerShown: false,
+          tabBarTestID: 'repo-tab',
           tabBarIcon: ({ color }) => (
             <Feather testID="repo-tab" name="github" size={24} color={color} />
           ),
