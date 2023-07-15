@@ -1,6 +1,13 @@
 appId: com.devmetrics.app
 ---
-- openLink: exp://192.168.15.7:19000
+# open app
+- runFlow:
+    when:
+      notVisible:
+        id: "login"
+    commands:
+    - openLink: exp://192.168.15.7:19000
+
 - assertVisible: "DevMetrics"
 - tapOn:
     id: "github-username-input"
@@ -70,8 +77,7 @@ appId: com.devmetrics.app
     id: "home-container"
 - tapOn:
     id: "repo-tab"
-- assertVisible:
-    id: "repo-container"
+- assertVisible: "Repositories of natanaelvich"
 - tapOn:
     id: "search-input"
 - eraseText
