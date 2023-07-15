@@ -6,7 +6,7 @@ appId: com.devmetrics.app
       notVisible:
         id: "login"
     commands:
-    - openLink: exp://192.168.15.7:19000
+    - openLink: exp://192.168.0.99:8081
 
 - assertVisible: "DevMetrics"
 - tapOn:
