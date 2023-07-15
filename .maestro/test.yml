@@ -29,10 +29,21 @@ appId: com.devmetrics.app
 - scrollUntilVisible:
     element: "Timbiras,MA,Brazil"
     direction: DOWN
-- tapOn: "Navigate up"
+
+# back
+- runFlow:
+    when:
+      platform: "Android"
+    commands:
+    - tapOn: "Navigate up"
+- runFlow:
+    when:
+      platform: "IOS"
+    commands:
+    - tapOn: "Back"
+
 - tapOn:
     text: "Repositories"
-    index: 0
 - assertVisible: "Search repository..."
 - tapOn: "devmetrics_show-case-expo-router"
 - assertVisible: "Repository details"
@@ -40,15 +51,25 @@ appId: com.devmetrics.app
 - assertVisible: "DevMetrics is a mobile app built with React Native and Expo, created\
     \ to apply the concepts of navigation using Expo Router and fetching data from\
     \ the GitHub API to display repositories, user details, and metrics."
-- tapOn: "Navigate up"
+
+# back
+- runFlow:
+    when:
+      platform: "Android"
+    commands:
+    - tapOn: "Navigate up"
+- runFlow:
+    when:
+      platform: "IOS"
+    commands:
+    - tapOn: "Back"
+
 - tapOn:
-    text: "home"
-    index: 0
+    id: "home-tab"
 - assertVisible:
     id: "home-container"
 - tapOn:
-    text: "repositories"
-    index: 1
+    id: "repo-tab"
 - assertVisible:
     id: "repo-container"
 - tapOn:
@@ -58,8 +79,7 @@ appId: com.devmetrics.app
 - assertVisible: "devmetrics_show-case-expo-router"
 - hideKeyboard
 - tapOn:
-    text: "home"
-    index: 0
+    id: "home-tab"
 - tapOn: "Metrics"
 - assertVisible: "Metrics for natanaelvich"
 - assertVisible: "Number of Repositories"
